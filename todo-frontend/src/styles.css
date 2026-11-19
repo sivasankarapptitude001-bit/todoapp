@@ -1,0 +1,101 @@
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+}
+
+body {
+  margin: 0;
+}
+
+* { box-sizing: border-box; }
+
+button, input { font: inherit; }
+button { cursor: pointer; }
+
+.app,
+.auth-card {
+  max-width: 680px;
+  margin: 64px auto;
+  padding: 32px;
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 12px 32px rgba(23, 32, 51, 0.08);
+}
+
+.auth-app { min-height: 100vh; padding: 1px 16px; }
+.auth-card { max-width: 430px; margin-top: 96px; }
+.auth-card h1 { margin-top: 0; }
+.auth-form { display: grid; gap: 16px; }
+.auth-form label { display: grid; gap: 7px; font-weight: 600; }
+.auth-form input,
+.task-form input,
+.edit-task-form input {
+  width: 100%;
+  border: 1px solid #ccd3e0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: white;
+}
+
+.auth-form button,
+.task-form button,
+.edit-task-form button,
+.task-actions button,
+.secondary-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  background: #315bea;
+  color: white;
+  font-weight: 700;
+}
+
+button:disabled { opacity: 0.65; cursor: wait; }
+.form-error { color: #b42318; margin: 8px 0 0; }
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.dashboard-header h1 { margin: 4px 0 0; }
+.eyebrow { margin: 0; color: #69758d; font-weight: 700; }
+.secondary-button { background: #edf1f8; color: #344054; }
+
+.task-form { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+.task-form .form-error { grid-column: 1 / -1; }
+.task-list { list-style: none; padding: 0; margin: 24px 0 0; }
+.task-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #edf0f5;
+  padding: 14px 0;
+}
+.task-item.completed .task-name {
+  color: #7b8496;
+  text-decoration: line-through;
+}
+.task-actions { display: flex; gap: 8px; }
+.task-actions button,
+.edit-task-form button {
+  padding: 7px 10px;
+  background: #edf1f8;
+  color: #344054;
+}
+.edit-task-form { display: grid; grid-template-columns: 1fr auto auto; gap: 8px; }
+.task-item .form-error { grid-column: 1 / -1; }
+.empty-state,
+.loading-state { color: #69758d; text-align: center; padding: 24px 0; }
+
+@media (max-width: 600px) {
+  .app, .auth-card { margin: 24px auto; padding: 20px; }
+  .task-form { grid-template-columns: 1fr; }
+  .task-item { grid-template-columns: auto 1fr; }
+  .task-actions { grid-column: 2; }
+  .edit-task-form { grid-template-columns: 1fr; }
+}
