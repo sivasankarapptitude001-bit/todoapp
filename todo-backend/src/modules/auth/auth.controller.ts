@@ -23,7 +23,7 @@ export class AuthController {
       response.cookie("accessToken", result.accessToken, {
         httpOnly: true,
         secure: environment.NODE_ENV === "production",
-        sameSite: "lax",
+        sameSite: environment.NODE_ENV === "production" ? "none" : "lax",
         maxAge: 60 * 60 * 1000
       });
       response.status(200).json({ success: true, data: result });
@@ -45,7 +45,7 @@ export class AuthController {
     response.clearCookie("accessToken", {
       httpOnly: true,
       secure: environment.NODE_ENV === "production",
-      sameSite: "lax"
+      sameSite: environment.NODE_ENV === "production" ? "none" : "lax"
     });
     response.status(204).send();
   };
